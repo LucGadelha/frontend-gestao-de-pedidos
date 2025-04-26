@@ -29,7 +29,7 @@ export function CreateOrderForm() {
     defaultValues: {
       customer: "",
       product: "",
-      value: undefined,
+      value: 0, // Definir um valor inicial em vez de undefined
     },
   })
 

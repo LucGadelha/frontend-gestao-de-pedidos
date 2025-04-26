@@ -1,30 +1,119 @@
-# Full stack mentorship
+# 📦 Gestão de Pedidos - Frontend (Next.js + TypeScript)
 
-*Automatically synced with your [v0.dev](https://v0.dev) deployments*
+Uma aplicação moderna para gestão de pedidos, desenvolvida com Next.js, TypeScript e SWR, integrando-se a uma API backend em ASP.NET Core.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/lucas-gadelhas-projects/v0-full-stack-mentorship)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/AVJZsp0Np6S)
+## 🚀 Funcionalidades
 
-## Overview
+- 📝 Cadastro de novos pedidos
+- 📋 Listagem de pedidos existentes
+- 🔎 Visualização detalhada de cada pedido
+- ❌ Mensagens de erro amigáveis para o usuário
+- 🔄 Atualização automática da lista após ações
+- 📱 Layout responsivo
 
-This repository will stay in sync with your deployed chats on [v0.dev](https://v0.dev).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.dev](https://v0.dev).
+## 🛠️ Tecnologias Utilizadas
 
-## Deployment
+- **Next.js** - Framework React para SSR/SSG
+- **TypeScript** - Tipagem estática para maior segurança
+- **SWR** - Data fetching e cache
+- **React Hook Form** - Gerenciamento de formulários
+- **Zod** - Validação de schemas
+- **Tailwind CSS** (opcional) - Estilização moderna e responsiva
 
-Your project is live at:
+## 📦 Estrutura do Projeto
 
-**[https://vercel.com/lucas-gadelhas-projects/v0-full-stack-mentorship](https://vercel.com/lucas-gadelhas-projects/v0-full-stack-mentorship)**
+```
+frontend-gestao-de-pedidos/
+├── components/
+│   └── orders/
+│       ├── create-order-form.tsx   # Formulário de criação de pedidos
+│       ├── order-list.tsx         # Lista de pedidos
+│       └── order-details.tsx      # Detalhes do pedido
+├── lib/
+│   └── api/
+│       └── orders.ts              # Funções de integração com a API
+├── pages/
+│   ├── index.tsx                  # Página inicial
+│   └── ...
+└── ...
+```
 
-## Build your app
+## 💻 Como Executar
 
-Continue building your app on:
+1. **Clone o repositório**
+   ```bash
+   git clone <url-do-repositorio>
+   cd frontend-gestao-de-pedidos
+   ```
 
-**[https://v0.dev/chat/projects/AVJZsp0Np6S](https://v0.dev/chat/projects/AVJZsp0Np6S)**
+2. **Instale as dependências**
+   ```bash
+   yarn install
+   # ou
+   npm install
+   ```
 
-## How It Works
+3. **Configure as variáveis de ambiente**
+   - Crie um arquivo `.env.local` na raiz do projeto com:
+     ```env
+     NEXT_PUBLIC_API_URL=http://localhost:5158
+     ```
+   - Certifique-se de que o backend está rodando na porta correta.
 
-1. Create and modify your project using [v0.dev](https://v0.dev)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+4. **Execute o projeto**
+   ```bash
+   yarn dev
+   # ou
+   npm run dev
+   ```
+
+5. **Acesse no navegador**
+   - Abra [http://localhost:3000](http://localhost:3000)
+
+## 🎯 Principais Características
+
+### Integração com Backend
+- Consome API RESTful para criar e listar pedidos
+- Validação de dados antes do envio
+- Mensagens de erro claras em caso de falha
+
+### Componentização
+- Componentes reutilizáveis para formulários, listas e detalhes
+- Separação clara de responsabilidades
+
+### Estado e UX
+- Utilização de SWR para atualização automática dos dados
+- Feedback visual para ações do usuário
+
+### Tipos
+```typescript
+type Order = {
+  id: string;
+  cliente: string;
+  descricao: string;
+  valor: number;
+  status: string;
+  dataCriacao: string;
+};
+```
+
+### Estilização
+- Interface moderna e responsiva
+- Uso opcional de Tailwind CSS para estilização rápida
+
+## 🔍 Funcionalidades Detalhadas
+
+### Cadastro de Pedidos
+- Formulário validado com React Hook Form + Zod
+- Feedback imediato em caso de erro
+
+### Listagem e Detalhes
+- Atualização automática após criação de pedidos
+- Visualização detalhada ao selecionar um pedido
+
+### Erros e Feedback
+- Exibição de mensagens amigáveis para o usuário em caso de falha na API
+
+---
+
+Desenvolvido para demonstrar integração frontend-backend, boas práticas de UX e validação de dados.
