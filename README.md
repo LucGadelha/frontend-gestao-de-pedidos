@@ -40,6 +40,39 @@ frontend-gestao-de-pedidos/
 
 ## 💻 Como Executar
 
+### 🐳 Execução com Docker
+
+1. **Crie o arquivo `.env.local`** (se desejar customizar a URL da API):
+   ```env
+   NEXT_PUBLIC_API_URL=http://api:5158
+   ```
+   > Use `http://api:5158` se for rodar backend e frontend juntos via Docker Compose.
+
+2. **Build e execute o container do frontend:**
+   ```bash
+   docker build -t frontend-gestaopedidos .
+   docker run -p 3000:3000 --env-file .env.local frontend-gestaopedidos
+   ```
+   - O app estará disponível em [http://localhost:3000](http://localhost:3000)
+
+3. **Integração com Docker Compose**
+   - Adicione o serviço `frontend` ao seu `docker-compose.yml`:
+   ```yaml
+   frontend:
+     build:
+       context: ./frontend-gestao-de-pedidos
+       dockerfile: Dockerfile
+     environment:
+       - NEXT_PUBLIC_API_URL=http://api:5158
+     ports:
+       - "3000:3000"
+     depends_on:
+       - api
+   ```
+   - Assim, frontend e backend funcionam juntos, cada um em seu container.
+
+---
+
 1. **Clone o repositório**
    ```bash
    git clone <url-do-repositorio>
